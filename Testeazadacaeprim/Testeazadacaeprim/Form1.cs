@@ -49,7 +49,10 @@ namespace Testeazadacaeprim
             {
                 e.Handled = true;
                 MessageBox.Show("Esti foarte amuzant!");
+                BackColor = Color.White;
             }
         }
+
+        
     }
 }
