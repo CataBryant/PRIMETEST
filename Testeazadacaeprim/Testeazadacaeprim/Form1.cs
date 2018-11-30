@@ -48,6 +48,7 @@ namespace Testeazadacaeprim
             if(!char.IsDigit(ch)&&ch!=8)
             {
                 e.Handled = true;
+                MessageBox.Show("Esti foarte amuzant!");
             }
         }
     }
