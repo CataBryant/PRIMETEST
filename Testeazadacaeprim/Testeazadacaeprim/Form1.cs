@@ -26,7 +26,18 @@ namespace Testeazadacaeprim
         {
             double i, ok = 1;
             int n = 0;
-            n = Convert.ToInt32(textBox1.Text);
+            try
+            {
+                n = Convert.ToInt32(textBox1.Text);
+            }
+            catch(Exception)
+            {
+                n = 0;
+            }
+            if(n>9999)
+            {
+                MessageBox.Show("Nr mai mic te rog");
+            }
             if (n <= 1)
             {
                 ok = 0;
@@ -37,15 +48,21 @@ namespace Testeazadacaeprim
                     ok = 0;
             }
             if (ok == 1)
+            {
                 BackColor = Color.Green;
+                label2.Text = ("Nr tau e PRIM");
+            }
             else
+            {
                 BackColor = Color.Red;
+                label2.Text = ("Nr tau NU e PRIM");
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if(!char.IsDigit(ch)&&ch!=8)
+            if(!char.IsDigit(ch) && ch!=8)
             {
                 e.Handled = true;
                 MessageBox.Show("Esti foarte amuzant!");
