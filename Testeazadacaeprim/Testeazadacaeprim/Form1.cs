@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Testeazadacaeprim
 {
@@ -21,9 +22,12 @@ namespace Testeazadacaeprim
         {
 
         }
-
+        SoundPlayer fail = new SoundPlayer(@" E:\p4.wav");
+        SoundPlayer nope = new SoundPlayer(@" E:\p5.wav");
         private void button1_Click(object sender, EventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(@" E:\p3.wav");
+            
             double i, ok = 1;
             int n = 0;
             try
@@ -34,9 +38,11 @@ namespace Testeazadacaeprim
             {
                 n = 0;
             }
-            if(n>9999)
+            if(n>9999999)
             {
                 MessageBox.Show("Nr mai mic te rog");
+                textBox1.Text = " ";
+                label2.Text = "Numar prea mare";
             }
             if (n <= 1)
             {
@@ -50,12 +56,14 @@ namespace Testeazadacaeprim
             if (ok == 1)
             {
                 BackColor = Color.Green;
-                label2.Text = ("Nr tau e PRIM");
+                label2.Text = ("Numarul tau e PRIM");
+                player.Play();
             }
             else
             {
                 BackColor = Color.Red;
-                label2.Text = ("Nr tau NU e PRIM");
+                label2.Text = ("Numarul tau NU e PRIM");
+                nope.Play();
             }
         }
 
@@ -66,6 +74,7 @@ namespace Testeazadacaeprim
             {
                 e.Handled = true;
                 MessageBox.Show("Esti foarte amuzant!");
+                fail.Play();
                 BackColor = Color.White;
             }
         }
